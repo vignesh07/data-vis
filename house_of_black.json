@@ -1,0 +1,88 @@
+{
+ "name": "Tojours Pur",
+ "children": [
+
+    {"name": "Sirius","size":0},
+    {"name": "Elladora","size":0},
+    {"name": "Isla","size":1},
+    
+    {"name":"Phineas Nigellus+Ursula", 
+        "children": [
+
+            {"name":"Sirius-2+Hesper Gamp",
+              "children": [
+
+                {"name":"Arcturus-2+Melania",
+                  "children": [
+                    {"name":"Lucretia+Ignatius Prewett","size":0},
+                    {"name":"Orion+Walburga",
+                        "children":[
+                            {"name":"Sirius-3","size":0},
+                            {"name":"Regulus-2","size":0}
+                                  ]
+          
+                    }
+                            ]
+
+                },
+            
+            {"name":"Lycoris","size":0},
+            {"name":"Regulus-1","size":0}
+            ]
+
+      
+          },
+          {"name":"Phineas-2","size":0},
+          {"name":"Cygnus+Violetta Bullstrode",
+          "children":[
+            {"name":"Cassiopeia","size":0},
+            {"name":"Marius (a squib)","size":0},
+            {"name":"Doria+Charles Potter","size":0},
+            {"name":"Pollux+Irma Crabbe",
+                "children":[
+                  {"name":"Walburga","size":0},
+                  {"name":"Alphard","size":0},
+                  {"name":"Cygnus-2+Druella Rosier",
+                    "children":[
+                    {"name":"Bellatrix+Rodolfus Lestrange","size":0},
+                    {"name":"Andromeda+Ted Tonks",
+                      "children":[
+                        {"name":"Nymphadora+Remus Lupin","size":0}
+
+                      ]
+
+                    },
+                    {"name":"Narcissa+Lucius Malfoy",
+                      "children": [
+                      {"name":"Draco Malfoy","size":0}]
+                    }  
+
+                    ]
+                }
+
+                            ]
+
+          }
+          ]
+        },
+        
+        {"name":"Belvina+Herbert Burke","size":0},
+        {"name":"Arcturus+Lysandra Yaxley",
+          "children": [
+          {"name":"Callidora+Harfang Longbottom","size":0},
+          {"name":"Cedrella","size":0},
+          {"name":"Charis+Caspar Crouch","size":0}
+
+          ]
+
+        }
+
+
+  ]
+  }
+  ]
+}
+
+  
+
+  
