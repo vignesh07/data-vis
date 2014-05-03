@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<i>The Noble and Most Ancient House of Black</i>
+
+<meta charset="utf-8">
+<style>
+
+.node circle {
+  fill: #fff;
+  stroke: steelblue;
+  stroke-width: 1.5px;
+}
+
+.node {
+  font: 11px sans-serif;
+}
+
+.link {
+  fill: none;
+  stroke: #ccc;
+  stroke-width: 1.5px;
+}
+
+</style>
+<body>
+<script src="http://d3js.org/d3.v3.min.js"></script>
+<script>
+
+var diameter = 1500;
+
+var tree = d3.layout.tree()
+    .size([200, 1000])
+    .separation(function(a, b) { return (a.parent == b.parent ? 4 : 6) / a.depth; });
+
+var diagonal = d3.svg.diagonal.radial()
+    .projection(function(d) { return [d.y, d.x/180 * Math.PI]; });
+
+var svg = d3.select("body").append("svg")
+    .attr("width", 1500)
+    .attr("height", 1500 )
+  .append("g")
+    .attr("transform", "translate(" + diameter /4 + "," + diameter / 4 + ")");
+
+d3.json("house_of_black.json", function(error, root) {
+  var nodes = tree.nodes(root),
+      links = tree.links(nodes);
+
+  var link = svg.selectAll(".link")
+      .data(links)
+    .enter().append("path")
+      .attr("class", "link")
+      .attr("d", diagonal);
+
+  var node = svg.selectAll(".node")
+      .data(nodes)
+    .enter().append("g")
+      .attr("class", "node")
+      .attr("transform", function(d) { return "rotate(" + (d.x -90) + ")translate(" + d.y + ")"; })
+
+  node.append("circle")
+      .attr("r", 4.5);
+
+  node.append("text")
+      .attr("dy", ".31em")
+      .attr("text-anchor", function(d) { return d.x < 180 ? "start" : "end"; })
+      .attr("transform", function(d) { return d.x < 180 ? "translate(8)": "rotate(180)translate(-8)"; })
+      .text(function(d) { return d.name; });
+});
+
+d3.select(self.frameElement).style("height", 700 + "px");
+
+</script>
+
+
+
+<i>The tree layout implements the Reingold-Tilford algorithm for efficient, tidy arrangement of layered nodes. The depth of nodes is computed by distance from the root, leading to a ragged appearance. Cartesian orientations are also supported. Implementation based on work by Jeff Heer and Jason Davies using Buchheim et al.'s linear-time variant of the Reingold-Tilford algorithm.<i>
+
+The data was manually constructed by me using the available resources at <a href="http://harrypotter.wikia.com/wiki/House_of_Black"> Harry Potter Wikia </a> and is fed into the algorithm in the form of a json.
+
+This is my first ever visualization project(?) and my first experience with <a href="http://d3js.org/"> d3js</a> so please excuse the clumsty output. I am hoping to come back to this once I learn d3js better. Code for this ouput can be found 
+
+A beautiful Radial Reingold-Tilford tree can be found <a href="http://bl.ocks.org/mbostock/4063550#index.html"> here </a>
+
